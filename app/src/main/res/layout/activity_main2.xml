@@ -14,33 +14,36 @@
         android:textSize="30dp" />
 
     <LinearLayout
-        android:id="@+id/buttomLay"
+        android:id="@+id/buttonLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/login1"
         >
+
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="buttom"/>
+            android:text="button1" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="buttom"/>
+            android:text="button2"/>
 
         <Button
-            android:id="@+id/butto3"
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="buttom"/>
+            android:text="button3"/>
     </LinearLayout>
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/buttomLay"/>
+        android:layout_below="@id/buttonLay"/>
 
 
 </RelativeLayout>
