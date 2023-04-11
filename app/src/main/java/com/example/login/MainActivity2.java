@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.security.Permission;
+
 public class MainActivity2 extends AppCompatActivity {
     private TextView textView;
     Button fragment1,fragment2,fragment3;
