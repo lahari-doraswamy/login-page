@@ -11,15 +11,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="login Successfull"
+        android:textSize="50dp" />
+    <EditText
+        android:id="@+id/usernames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login1"
+        android:hint="username"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="30dp" />
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:layout_below="@id/usernames"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="30dp" />
+
+
+    <Button
+        android:id="@+id/logut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/Password"
+        android:text="logout" />
+
 
     <LinearLayout
         android:id="@+id/buttonLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/login1"
-        >
+        android:layout_below="@id/logut"
+        android:layout_marginTop="34dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/button1"
@@ -31,19 +59,23 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button2"/>
+            android:text="button2" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button3"/>
+            android:text="button3" />
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/buttonLay"/>
+        android:layout_marginTop="10dp">
+
+
+    </FrameLayout>
 
 
 </RelativeLayout>
