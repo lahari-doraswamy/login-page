@@ -17,15 +17,21 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 public class MainActivity extends AppCompatActivity {
     private int STORAGEPERMISSONCODE = 1;
     private EditText editUsername , editPassword;
 
     private Button btnlogin;
+
+
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME = "mypref";
     private static final String KEY_NAME ="name";
@@ -59,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "LoginSuccess",Toast.LENGTH_SHORT).show();
             }
-        });
+        }) ;
+
 
 
     }

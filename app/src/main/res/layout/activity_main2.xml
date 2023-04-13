@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".MainActivity2"
+    android:id="@+id/maincontainer">
 
     <TextView
         android:id="@+id/login1"
@@ -32,22 +33,28 @@
         android:textSize="30dp" />
 
 
-    <Button
-        android:id="@+id/logut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/Password"
-        android:text="logout" />
-
 
     <LinearLayout
         android:id="@+id/buttonLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logut"
+        android:layout_below="@id/Password"
         android:layout_marginTop="34dp"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/logut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/Password"
+            android:text="logout" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottombutton"
+            android:text="bottom button"
+            />
+
 
         <Button
             android:id="@+id/button1"
@@ -66,6 +73,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="button3" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnrecycler"
+            android:text="open fragment"
+            />
+
+
     </LinearLayout>
 
     <FrameLayout
@@ -76,6 +91,7 @@
 
 
     </FrameLayout>
+
 
 
 </RelativeLayout>
