@@ -54,6 +54,13 @@
             android:id="@+id/bottombutton"
             android:text="bottom button"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/continues"
+            android:text="continue"
+            />
+
 
 
         <Button

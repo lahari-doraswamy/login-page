@@ -1,12 +1,14 @@
 package com.example.login;
 
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +27,8 @@ public class MainActivity2 extends AppCompatActivity {
     Button fragment1,fragment2,fragment3,fragment4;
     TextView textView_username,textView_password;
     Button btnLogout;
+    Button btncontinue;
+
 
     SharedPreferences sharedPreferences;
 
@@ -146,7 +150,34 @@ public class MainActivity2 extends AppCompatActivity {
                 bottomSheetDialog.show();
             }
         });
+        btncontinue = findViewById(R.id.continues);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        btncontinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                alert.setTitle("Android Studio");
+                alert.setMessage("Do you want continue?");
+                alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity2.this, "Good Job!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity2.this, "exit!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                alert.create().show();
+
+            }
+        });
     }
+
 
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager=getSupportFragmentManager();
