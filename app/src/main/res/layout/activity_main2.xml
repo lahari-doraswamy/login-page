@@ -57,6 +57,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/custombutton"
+            android:text="custom button"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/continues"
             android:text="continue"
             android:onClick="showAlertDialog"

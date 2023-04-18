@@ -16,11 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.security.Permission;
 
 public class MainActivity2 extends AppCompatActivity {
     private TextView textView;
@@ -34,10 +31,13 @@ public class MainActivity2 extends AppCompatActivity {
 
     private Button btnbottomsheet1;
     private BottomSheetDialog bottomSheetDialog;
+    Button btncustomalert1;
+
 
     private static final String SHARED_PREF_NAME="mypref";
     private static final String SHARED_PREF_USERNAME="name";
     private static final String SHARED_PREF_PASs="password";
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -45,6 +45,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
 
         textView_username = findViewById(R.id.usernames);
         textView_password = findViewById(R.id.Password);
@@ -150,8 +152,46 @@ public class MainActivity2 extends AppCompatActivity {
                 bottomSheetDialog.show();
             }
         });
+        btncustomalert1=findViewById(R.id.custombutton);
+        btncustomalert1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder builder=new android.app.AlertDialog.Builder(MainActivity2.this);
+                builder.setTitle("Alert");
+                builder.setMessage("alert box");
+                builder.setCancelable(false);
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity2.this, "Good job", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                builder.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity2.this, "exit", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                });
+                android.app.AlertDialog dialog = builder.create();
+                dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        dialog.getWindow().setBackgroundDrawableResource(R.color.red);
+
+                    }
+                });
+                builder.show();
+
+            }
+        });
+
+
 
     }
+
+
     public void showAlertDialog(View view) {
         btncontinue = findViewById(R.id.continues);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
