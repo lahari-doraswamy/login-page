@@ -150,32 +150,29 @@ public class MainActivity2 extends AppCompatActivity {
                 bottomSheetDialog.show();
             }
         });
+
+    }
+    public void showAlertDialog(View view) {
         btncontinue = findViewById(R.id.continues);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        btncontinue.setOnClickListener(new View.OnClickListener() {
+
+        alert.setTitle("Android Studio");
+        alert.setMessage("Do you want continue?");
+        alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                alert.setTitle("Android Studio");
-                alert.setMessage("Do you want continue?");
-                alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(MainActivity2.this, "Good Job!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(MainActivity2.this, "exit!", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-                alert.create().show();
-
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity2.this, "Good job", Toast.LENGTH_SHORT).show();
             }
         });
+        alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity2.this, "EXIT", Toast.LENGTH_SHORT).show();
+            }
+        });
+    alert.create().show();
+
     }
 
 
