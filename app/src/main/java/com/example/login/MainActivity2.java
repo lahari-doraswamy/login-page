@@ -17,7 +17,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import org.json.JSONObject;
 
 public class MainActivity2 extends AppCompatActivity {
     private TextView textView;
@@ -186,6 +193,22 @@ public class MainActivity2 extends AppCompatActivity {
 
             }
         });
+        TextView tv=(TextView)  findViewById(R.id.hello);
+        String url ="https://reqres.in/api/users/2";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                tv.setText(response.toString());
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                tv.setText("error ");
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjectRequest);
 
 
 
