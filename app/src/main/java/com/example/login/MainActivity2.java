@@ -1,6 +1,8 @@
 package com.example.login;
 
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,20 +13,18 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import org.json.JSONObject;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity2 extends AppCompatActivity {
     private TextView textView;
@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     SharedPreferences sharedPreferences;
+    private Button apibtn;
 
     private Button btnbottomsheet1;
     private BottomSheetDialog bottomSheetDialog;
@@ -193,25 +194,37 @@ public class MainActivity2 extends AppCompatActivity {
 
             }
         });
-        TextView tv=(TextView)  findViewById(R.id.hello);
-        String url ="https://reqres.in/api/users/2";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                tv.setText(response.toString());
+       apibtn  =findViewById(R.id.api);
+       apibtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               apibtnclick();
+           }
+       });
 
-            }
-        }, new Response.ErrorListener() {
+    }
+
+    private void apibtnclick() {
+        ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+        Call<User> call =apiInterface.getUserInformation("1","lahari20028@gmail.com","Lahari","Doraswamy","jhjhoi","i am lahari");
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                tv.setText("error ");
+            public void onResponse(Call<User> call, Response<User> response) {
+                Log.e(TAG, "onResponse: "+response.code() );
+                Log.e(TAG, "onResponse: id :"+response.body() .getId());
+                Log.e(TAG, "onResponse: email : "+response.body().getEmail() );
+                Log.e(TAG, "onResponse: first_name : "+response.body().getFirst_name() );
+                Log.e(TAG, "onResponse: last_name : "+response.body().getLast_name() );
+                Log.e(TAG, "onResponse: support : "+response.body().getSupport() );
+                Log.e(TAG, "onResponse: text : "+response.body().getText() );
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "onFailure: "+t.getMessage() );
+
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjectRequest);
-
-
-
     }
 
 

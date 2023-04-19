@@ -31,15 +31,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="30dp" />
-    <EditText
-        android:id="@+id/hello"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="HELLO"
-        android:layout_below="@id/Password"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="30dp" />
+
 
 
 
@@ -47,9 +39,17 @@
         android:id="@+id/buttonLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hello"
+        android:layout_below="@id/Password"
         android:layout_marginTop="34dp"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="API"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="30dp" />
         <Button
             android:id="@+id/logut"
             android:layout_width="match_parent"
